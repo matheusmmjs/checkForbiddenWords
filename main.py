@@ -6,13 +6,17 @@ setForbiddenNames = ['adolf hitler', 'barack obama']
 
 
 def calculateLevenshteinDistance(name):
-    result = []
+    score = 0
+    minScore = 99999
     name = checkWords(name)
 
     for f in setForbiddenNames:
-        result.append(lev(name, f))
+        score = lev(name, f)
 
-    return min(result)
+        if(score < minScore):
+            minScore = score
+
+    return minScore
 
 
 def checkWords(name):
@@ -34,7 +38,7 @@ def checkWords(name):
     return name
 
 
-name = 'pedro da h1t7er silva'
+name = 'pedro henrique da silva'
 
 params = {'number': 10000, 'globals': globals()}
 
