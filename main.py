@@ -12,7 +12,7 @@ def calculateLevenshteinDistance(name):
     for f in setForbiddenNames:
         result.append(lev(name, f))
 
-    return result
+    return min(result)
 
 
 def checkWords(name):
